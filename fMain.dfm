@@ -13,6 +13,13 @@ object Form1: TForm1
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
+  object Label1: TLabel
+    Left = 8
+    Top = 20
+    Width = 158
+    Height = 13
+    Caption = 'Double click to view column name'
+  end
   object Button1: TButton
     Left = 552
     Top = 8
@@ -26,19 +33,32 @@ object Form1: TForm1
     Left = 552
     Top = 39
     Width = 281
-    Height = 545
+    Height = 355
     Lines.Strings = (
       'Memo2')
     ScrollBars = ssVertical
     TabOrder = 1
   end
+  object DBGrid1: TDBGrid
+    Left = 8
+    Top = 400
+    Width = 825
+    Height = 184
+    DataSource = DataSource1
+    TabOrder = 2
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+  end
   object ListBox1: TListBox
     Left = 8
-    Top = 8
+    Top = 39
     Width = 538
-    Height = 576
+    Height = 355
     ItemHeight = 13
-    TabOrder = 2
+    TabOrder = 3
     OnDblClick = ListBox1DblClick
   end
   object UniMetaData1: TUniMetaData
@@ -49,14 +69,14 @@ object Form1: TForm1
   object UniConnection1: TUniConnection
     ProviderName = 'mySQL'
     Port = 3306
-    Database = 'school_mgr'
+    Database = 'banana'
     Username = 'root'
-    Server = 'localhost'
+    Server = '192.168.1.69'
     Connected = True
     LoginPrompt = False
     Left = 760
     Top = 72
-    EncryptedPassword = '9CFF97FF9AFF93FF8CFF9AFF9EFF99FF9CFF'
+    EncryptedPassword = 'BEFF93FF8AFF92FF9AFF8BFFBFFFCFFFCBFFCEFFC8FFCFFFCCFF'
   end
   object MySQLUniProvider1: TMySQLUniProvider
     Left = 760
@@ -66,5 +86,16 @@ object Form1: TForm1
     Connection = UniConnection1
     Left = 760
     Top = 192
+  end
+  object UniMetaData2: TUniMetaData
+    MetaDataKind = 'Columns'
+    Connection = UniConnection1
+    Left = 600
+    Top = 216
+  end
+  object DataSource1: TDataSource
+    DataSet = UniMetaData2
+    Left = 472
+    Top = 288
   end
 end
